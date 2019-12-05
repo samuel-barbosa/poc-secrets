@@ -1,13 +1,13 @@
 <%@ page import="java.net.*" %>
 <%@ page import="java.io.*" %>
 <%@ page import="java.util.*" %>
-<%@ page import="java.nio.file.*.*" %>
+<%@ page import="java.nio.file.*" %>
 <!DOCTYPE html>
 <html>
 <body>
 	<h1>News Feed Demo</h1>
 <%
-        String apiKey = new String(Files.readAllBytes("/secrets/api.key"));
+        String apiKey = new String(Files.readAllBytes(Paths.get("/secrets/api.key")));
         URL url = new URL(String.format("https://newsapi.org/v2/top-headlines?sources=google-news&apiKey=%s", apiKey));
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
         con.setRequestMethod("GET");
